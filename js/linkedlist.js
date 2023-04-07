@@ -127,7 +127,7 @@ export class LinkedList {
   contains(value) {
     let node = this.list;
 
-    while (node.nextNode !== null) {
+    while (node !== null) {
       if (node.value === value) {
         return true;
       }
@@ -145,7 +145,7 @@ export class LinkedList {
   find(value) {
     let node = this.list;
     let index = 0;
-    while (node.nextNode !== null) {
+    while (node !== null) {
       index++;
       if (node.value === value) {
         return index;
@@ -164,7 +164,7 @@ export class LinkedList {
     let node = this.list;
     let printMsg = "";
 
-    while (node.nextNode !== null) {
+    while (node !== null) {
       printMsg = printMsg.concat(`( ${node.value} ) -> `);
       node = node.nextNode;
     }
