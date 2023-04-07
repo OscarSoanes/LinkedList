@@ -177,6 +177,10 @@ export class LinkedList {
    * @param {*} value the value to be set in the place of index
    */
   insertAt(index, value) {
+    if (index < 0) {
+      throw new Error("Index is out of bounds");
+    }
+
     let newNode = new Node(value);
     let node = this.list;
 
@@ -185,11 +189,35 @@ export class LinkedList {
       node = node.nextNode;
 
       if (node === null) {
-        throw Error("Index is out of bounds");
+        throw new Error("Index is out of bounds");
       }
     }
     let tempNode = node.nextNode;
     newNode.nextNode = tempNode;
     node.nextNode = newNode;
+  }
+
+  /**
+   *
+   * @param {number} index the index location to be deleted. Starts at 0.
+   */
+  deleteAt(index) {
+    if (index < 0) {
+      throw new Error("Index is out of bounds");
+    }
+
+    let node = this.list;
+    // Gets the value before we delete it.
+    while (index > 1) {
+      index--;
+      node = node.nextNode;
+
+      if (node.nextNode === null) {
+        throw new Error("Index is out of bounds");
+      }
+    }
+    // Gets the data after the current NextNode
+    let nextNodeDat = node.nextNode.nextNode;
+    node.nextNode = nextNodeDat;
   }
 }
