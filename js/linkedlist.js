@@ -81,6 +81,31 @@ export class LinkedList {
     return node.value;
   }
 
+  /**
+   * Returns the nodes value at the specified index.
+   * Starting value is of 1.
+   * @param {number} index the location where to get the value.
+   * @returns the nodes value at the specified index. Returns null
+   * if value is out of range.
+   */
+  at(index) {
+    if (index <= 0) {
+      return null;
+    }
+
+    let node = this.list;
+    // Loops until the index is of less than 1.
+    while (index > 1) {
+      node = node.nextNode;
+      index--;
+
+      if (node.nextNode === null) {
+        return null;
+      }
+    }
+    return node.value;
+  }
+
   display() {
     return this.list;
   }
