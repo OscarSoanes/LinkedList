@@ -156,7 +156,19 @@ export class LinkedList {
     return null;
   }
 
-  display() {
-    return this.list;
+  /**
+   * Prints the LinkedList to a prettier format.
+   * @returns a String that is in the style of ( node1 ) -> ( node2 ) -> null
+   */
+  toString() {
+    let node = this.list;
+    let printMsg = "";
+
+    while (node.nextNode !== null) {
+      printMsg = printMsg.concat(`( ${node.value} ) -> `);
+      node = node.nextNode;
+    }
+    printMsg = printMsg.concat("null");
+    return printMsg;
   }
 }
