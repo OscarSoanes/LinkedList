@@ -83,8 +83,7 @@ export class LinkedList {
 
   /**
    * Returns the nodes value at the specified index.
-   * Starting value is of 1.
-   * @param {number} index the location where to get the value.
+   * @param {number} index the location where to get the value. The index must be 0 or greater.
    * @returns the nodes value at the specified index. Returns null
    * if value is out of range.
    */
@@ -174,7 +173,7 @@ export class LinkedList {
 
   /**
    * Inserts a new value into the LinkedList at a specified index;
-   * @param {*} index the point to change the value (starts at 0)
+   * @param {number} index the point to change the value (starts at 0)
    * @param {*} value the value to be set in the place of index
    */
   insertAt(index, value) {
