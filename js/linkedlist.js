@@ -89,13 +89,13 @@ export class LinkedList {
    * if value is out of range.
    */
   at(index) {
-    if (index <= 0) {
+    if (index < 0) {
       return null;
     }
 
     let node = this.list;
     // Loops until the index is of less than 1.
-    while (index > 1) {
+    while (index > 0) {
       node = node.nextNode;
       index--;
 
@@ -170,5 +170,27 @@ export class LinkedList {
     }
     printMsg = printMsg.concat("null");
     return printMsg;
+  }
+
+  /**
+   * Inserts a new value into the LinkedList at a specified index;
+   * @param {*} index the point to change the value (starts at 0)
+   * @param {*} value the value to be set in the place of index
+   */
+  insertAt(index, value) {
+    let newNode = new Node(value);
+    let node = this.list;
+
+    while (index > 1) {
+      index--;
+      node = node.nextNode;
+
+      if (node === null) {
+        throw Error("Index is out of bounds");
+      }
+    }
+    let tempNode = node.nextNode;
+    newNode.nextNode = tempNode;
+    node.nextNode = newNode;
   }
 }
