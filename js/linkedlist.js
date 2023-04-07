@@ -42,6 +42,21 @@ export class LinkedList {
     this.list = newNode;
   }
 
+  /**
+   * Gets the size of the LinkedList
+   * @returns the total amount of Nodes in the LinkedList
+   */
+  size() {
+    let node = this.list;
+    let count = 0;
+    while (node !== null) {
+      count++;
+      node = node.nextNode;
+    }
+
+    return count;
+  }
+
   display() {
     return this.list;
   }
