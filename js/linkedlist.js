@@ -106,6 +106,19 @@ export class LinkedList {
     return node.value;
   }
 
+  /**
+   * Removes the last value within the LinkedList.
+   */
+  pop() {
+    let node = this.list;
+
+    while (node.nextNode.nextNode !== null) {
+      node = node.nextNode;
+    }
+
+    node.nextNode = null;
+  }
+
   display() {
     return this.list;
   }
