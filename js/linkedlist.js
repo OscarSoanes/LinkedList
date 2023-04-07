@@ -119,6 +119,24 @@ export class LinkedList {
     node.nextNode = null;
   }
 
+  /**
+   * Checks the entire LinkedList to see if there a value that matches the defined value.
+   * @param {*} value the value to check and see if the LinkedList contains this.
+   * @returns true or false depending if the value is in the LinkedList.
+   */
+  contains(value) {
+    let node = this.list;
+
+    while (node.nextNode !== null) {
+      if (node.value === value) {
+        return true;
+      }
+      node = node.nextNode;
+    }
+
+    return false;
+  }
+
   display() {
     return this.list;
   }
