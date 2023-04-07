@@ -49,12 +49,36 @@ export class LinkedList {
   size() {
     let node = this.list;
     let count = 0;
+
+    // Loops until the node is Null
     while (node !== null) {
       count++;
       node = node.nextNode;
     }
 
     return count;
+  }
+
+  /**
+   * Gets the first value inside the Linked List.
+   * @returns the head value of the LinkedList
+   */
+  head() {
+    return this.list.value;
+  }
+
+  /**
+   * Gets the last value inside the linked List
+   * @returns the tail value of the LinkedList
+   */
+  tail() {
+    let node = this.list;
+
+    while (node.nextNode !== null) {
+      node = node.nextNode;
+    }
+
+    return node.value;
   }
 
   display() {
