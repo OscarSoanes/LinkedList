@@ -137,6 +137,25 @@ export class LinkedList {
     return false;
   }
 
+  /**
+   * Checks the entire LinkedList to see if the value is, and returns the Index of the location if found.
+   * @param {*} value the value of check and see if the LinkedList contains it.
+   * @returns the index of the location if found or null if it does not exist.
+   */
+  find(value) {
+    let node = this.list;
+    let index = 0;
+    while (node.nextNode !== null) {
+      index++;
+      if (node.value === value) {
+        return index;
+      }
+      node = node.nextNode;
+    }
+
+    return null;
+  }
+
   display() {
     return this.list;
   }
